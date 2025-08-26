@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3001;
 // CORS 헤더 설정 (Vercel 도메인 허용)
 app.use((req, res, next) => {
     const allowedOrigins = [
-        process.env.FRONTEND_URL || 'https://your-app.vercel.app',
+        'https://free-mind-canvas.vercel.app',
         'http://localhost:3000',
         'http://localhost:3001',
         'http://localhost:5173',

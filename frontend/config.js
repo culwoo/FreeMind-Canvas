@@ -4,7 +4,7 @@ const ENV_CONFIG = {
         API_BASE_URL: 'http://localhost:3001'
     },
     production: {
-        API_BASE_URL: 'https://your-railway-app.railway.app' // Railway 배포 후 실제 URL로 변경
+        API_BASE_URL: 'https://freemind-canvas-production.up.railway.app'
     }
 };
 
