@@ -10,7 +10,8 @@
       "Bash(rm:*)",
       "Bash(git init:*)",
       "Bash(git config:*)",
-      "Bash(git remote remove:*)"
+      "Bash(git remote remove:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []
