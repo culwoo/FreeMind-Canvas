@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { copyFileSync } from 'fs';
 
 export default defineConfig({
   root: '.',
@@ -8,7 +9,14 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       input: {
-        main: './index.html'
+        main: './index.html',
+        config: './config.js',
+        app: './app.js'
+      },
+      output: {
+        entryFileNames: '[name].js',
+        chunkFileNames: '[name].js',
+        assetFileNames: '[name].[ext]'
       }
     },
     copyPublicDir: true

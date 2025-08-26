@@ -12,7 +12,8 @@
       "Bash(git config:*)",
       "Bash(git remote remove:*)",
       "Bash(npm run build:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "WebFetch(domain:free-mind-canvas.vercel.app)"
     ],
     "deny": [],
     "ask": []
