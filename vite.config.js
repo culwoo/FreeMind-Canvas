@@ -10,8 +10,10 @@ export default defineConfig({
       input: {
         main: './index.html'
       }
-    }
+    },
+    copyPublicDir: true
   },
+  publicDir: 'public',
   server: {
     port: 3001,
     open: true,
