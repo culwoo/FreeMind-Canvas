@@ -8,7 +8,8 @@
       "Bash(npm run dev:proxy:*)",
       "Bash(git add:*)",
       "Bash(rm:*)",
-      "Bash(git init:*)"
+      "Bash(git init:*)",
+      "Bash(git config:*)"
     ],
     "deny": [],
     "ask": []
