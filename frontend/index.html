@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://r2cdn.perplexity.ai; img-src 'self' data: blob:; font-src 'self' https://r2cdn.perplexity.ai; connect-src 'self' https://api.anthropic.com; manifest-src 'self' data:;">
+    <title>🧠 FreeMind Canvas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="app-title">🧠 FreeMind Canvas</h1>
+                <div class="header-controls">
+                    <button class="btn btn--sm btn--outline" id="helpBtn">도움말</button>
+                    <button class="btn btn--sm btn--outline" id="settingsBtn">설정</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="tool-group">
+                <button class="tool-btn active" id="penTool" data-tool="pen" title="펜">
+                    🖊️
+                </button>
+                <button class="tool-btn" id="textTool" data-tool="text" title="텍스트">
+                    📝
+                </button>
+                <button class="tool-btn" id="shapeTool" data-tool="shape" title="도형">
+                    📏
+                </button>
+                <button class="tool-btn" id="eraserTool" data-tool="eraser" title="지우개">
+                    🗑️
+                </button>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="tool-group">
+                <div class="brush-size-group">
+                    <button class="size-btn active" data-size="5">●</button>
+                    <button class="size-btn" data-size="2">•</button>
+                    <button class="size-btn" data-size="10">●</button>
+                    <button class="size-btn" data-size="15">●</button>
+                    <button class="size-btn" data-size="20">●</button>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="tool-group">
+                <div class="color-palette">
+                    <div class="color-btn active" data-color="#000000" style="background-color: #000000"></div>
+                    <div class="color-btn" data-color="#FF0000" style="background-color: #FF0000"></div>
+                    <div class="color-btn" data-color="#00FF00" style="background-color: #00FF00"></div>
+                    <div class="color-btn" data-color="#0000FF" style="background-color: #0000FF"></div>
+                    <div class="color-btn" data-color="#FFFF00" style="background-color: #FFFF00"></div>
+                    <div class="color-btn" data-color="#FF00FF" style="background-color: #FF00FF"></div>
+                    <div class="color-btn" data-color="#00FFFF" style="background-color: #00FFFF"></div>
+                    <div class="color-btn" data-color="#FFA500" style="background-color: #FFA500"></div>
+                </div>
+                <input type="color" id="customColor" class="custom-color-picker">
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="tool-group">
+                <button class="btn btn--sm btn--secondary" id="undoBtn" title="실행 취소">↶</button>
+                <button class="btn btn--sm btn--secondary" id="redoBtn" title="다시 실행">↷</button>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="tool-group">
+                <button class="btn btn--sm btn--primary ai-help-btn" id="aiHelpBtn">🤖 AI 도움</button>
+                <button class="btn btn--sm btn--outline" id="saveBtn">저장</button>
+                <button class="btn btn--sm btn--outline" id="exportBtn">내보내기</button>
+                <button class="btn btn--sm btn--outline" id="clearBtn">지우기</button>
+            </div>
+        </div>
+
+        <!-- Canvas Container -->
+        <div class="canvas-container" id="canvasContainer">
+            <canvas id="mainCanvas" width="2000" height="1500"></canvas>
+        </div>
+
+        <!-- Eraser Preview -->
+        <div class="eraser-preview" id="eraserPreview"></div>
+
+        <!-- AI Panel -->
+        <div class="ai-panel hidden" id="aiPanel">
+            <div class="ai-panel-header">
+                <h3>🤖 AI 확장 질문</h3>
+                <button class="ai-close-btn" id="aiCloseBtn">×</button>
+            </div>
+            <div class="ai-panel-content">
+                <div class="ai-loading hidden" id="aiLoading">
+                    <div class="loading-spinner"></div>
+                    <span>생각을 분석하고 있습니다...</span>
+                </div>
+                <div class="ai-questions" id="aiQuestions">
+                    <!-- AI questions will be inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Auto-save indicator -->
+        <div class="save-indicator hidden" id="saveIndicator">
+            ✓ 자동 저장됨
+        </div>
+
+        <!-- Text input modal -->
+        <div class="text-modal hidden" id="textModal">
+            <div class="text-modal-content">
+                <input type="text" class="text-input" id="textInput" placeholder="텍스트를 입력하세요...">
+                <div class="text-modal-actions">
+                    <button class="btn btn--sm btn--primary" id="textOkBtn">확인</button>
+                    <button class="btn btn--sm btn--outline" id="textCancelBtn">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

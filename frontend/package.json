@@ -1,0 +1,17 @@
+{
+  "name": "freemind-canvas-frontend",
+  "version": "1.0.0",
+  "description": "AI-powered mind mapping canvas - Frontend",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": ["mindmap", "canvas", "ai", "frontend"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
