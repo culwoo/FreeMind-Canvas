@@ -1038,11 +1038,5 @@ Ctrl+S: 저장`);
     }, 1000);
 });
 
-// Service Worker for PWA (개발 중에는 완전히 비활성화)
-if ('serviceWorker' in navigator && location.protocol === 'https:' && location.hostname !== 'localhost') {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then(() => console.log('SW registered'))
-            .catch(err => console.log('SW registration failed:', err));
-    });
-}
+// Service Worker for PWA - 완전히 비활성화 (배포 안정성을 위해)
+console.log('📱 Service Worker 등록 비활성화됨 (배포 안정성을 위해)');

@@ -1040,34 +1040,5 @@ Ctrl+S: 저장`);
     }, 1000);
 });
 
-// Service Worker for PWA (개발 중에는 완전히 비활성화)
-console.log('🔍 Service Worker 환경 체크:', {
-    serviceWorkerSupported: 'serviceWorker' in navigator,
-    protocol: location.protocol,
-    hostname: location.hostname,
-    href: location.href
-});
-
-if ('serviceWorker' in navigator && location.protocol === 'https:' && location.hostname !== 'localhost') {
-    console.log('✅ Service Worker 등록 조건 만족');
-    window.addEventListener('load', () => {
-        console.log('🚀 Service Worker 등록 시도: /sw.js');
-        navigator.serviceWorker.register('/sw.js')
-            .then((registration) => {
-                console.log('✅ SW 등록 성공:', registration);
-            })
-            .catch(err => {
-                console.error('❌ SW 등록 실패:', err);
-                console.log('🔍 SW 파일 확인을 위해 fetch 테스트');
-                fetch('/sw.js')
-                    .then(response => {
-                        console.log('📄 SW 파일 fetch 결과:', response.status, response.statusText);
-                    })
-                    .catch(fetchError => {
-                        console.error('❌ SW 파일 fetch 실패:', fetchError);
-                    });
-            });
-    });
-} else {
-    console.log('❌ Service Worker 등록 조건 불만족');
-}
+// Service Worker for PWA - 완전히 비활성화 (배포 안정성을 위해)
+console.log('📱 Service Worker 등록 비활성화됨 (배포 안정성을 위해)');
